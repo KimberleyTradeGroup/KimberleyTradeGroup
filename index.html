@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kimberley Trade Group — Precision. Position. Passage.</title>
+<meta name="description" content="Kimberley Trade Group is an elite international commodity brokerage operating the AUS–IND–MYS trade corridor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Jost:ital,wght@0,200;0,300;0,400;1,200;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   KTG GLOBAL BRAND SYSTEM v6
+   Psychological Readability + Malaysia Corridor
+   Cinzel + Jost · Obsidian + Aged Gold
+══════════════════════════════════════════ */
+:root {
+  --obsidian:  #080809;
+  --carbon:    #0E0E11;
+  --gunmetal:  #141418;
+  --surface:   #1B1B20;
+  --platinum:  #F0F0F4;       /* brighter — primary reading text */
+  --silver:    #D4D4DC;       /* body text — noticeably lighter */
+  --steel:     #9898A8;       /* secondary — still readable */
+  --ghost:     #3A3A44;
+  --gold:      #C8A96E;       /* slightly brighter gold */
+  --gold-hi:   #DEC088;
+  --gold-dim:  #8A7250;
+  --line:      rgba(200,169,110,0.12);
+  --line-soft: rgba(255,255,255,0.06);
+  --surface-hover: #1F1F26;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--obsidian);
+  color: var(--silver);           /* default body = readable light */
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width:3px; }
+::-webkit-scrollbar-track { background:var(--obsidian); }
+::-webkit-scrollbar-thumb { background:var(--gold-dim); }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 56px;
+  background:rgba(8,8,9,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:0.5px solid var(--line);
+}
+.nav-brand { display:flex; align-items:center; gap:14px; text-decoration:none; }
+.nav-logo { width:30px; height:auto; filter:brightness(8); opacity:0.85; }
+.nav-wordmark {
+  font-family:'Cinzel', serif;
+  font-size:10.5px; font-weight:600;
+  letter-spacing:0.26em; color:var(--platinum);
+  text-transform:uppercase;
+}
+.nav-links { display:flex; gap:32px; list-style:none; }
+.nav-links a {
+  font-size:8.5px; letter-spacing:0.4em;
+  text-transform:uppercase; font-weight:300;
+  color:var(--steel); text-decoration:none;
+  transition:color 0.3s;
+}
+.nav-links a:hover { color:var(--gold); }
+.nav-cta {
+  padding:10px 26px;
+  border:0.5px solid var(--gold-dim);
+  color:var(--gold);
+  font-family:'Jost', sans-serif;
+  font-size:8.5px; letter-spacing:0.45em;
+  text-transform:uppercase; font-weight:300;
+  text-decoration:none; transition:all 0.3s;
+}
+.nav-cta:hover { background:var(--gold); color:var(--obsidian); border-color:var(--gold); }
+.nav-toggle { display:none; background:none; border:none; color:var(--gold); cursor:pointer; font-size:20px; }
+
+/* ── HERO ── */
+.hero {
+  min-height:100vh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:0 56px 80px;
+  position:relative; overflow:hidden;
+}
+.hero::before {
+  content:''; position:absolute;
+  top:0; left:0; right:0; height:2px; z-index:2;
+  background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold-hi) 50%, var(--gold) 80%, transparent);
+  opacity:0.55;
+}
+.hero-grid {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    repeating-linear-gradient(90deg, rgba(200,169,110,0.025) 0, rgba(200,169,110,0.025) 0.5px, transparent 0.5px, transparent 80px),
+    repeating-linear-gradient(0deg,  rgba(200,169,110,0.025) 0, rgba(200,169,110,0.025) 0.5px, transparent 0.5px, transparent 80px);
+}
+.hero-glow {
+  position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 55% at 12% 65%, rgba(200,169,110,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 85% 25%, rgba(200,169,110,0.04) 0%, transparent 50%);
+}
+/* GIANT KTG — psychological priming, seen before reading */
+.hero-ktg-bg {
+  position:absolute; right:-40px; bottom:-70px;
+  font-family:'Cinzel', serif;
+  font-size:min(40vw, 560px); font-weight:700;
+  color:transparent;
+  -webkit-text-stroke:0.5px rgba(200,169,110,0.06);
+  letter-spacing:-0.04em; line-height:0.85;
+  z-index:0; pointer-events:none; user-select:none;
+}
+.hero-content { position:relative; z-index:1; }
+.hero-eyebrow {
+  font-size:8.5px; letter-spacing:0.6em;
+  color:var(--gold-dim); text-transform:uppercase; font-weight:300;
+  margin-bottom:28px;
+  display:flex; align-items:center; gap:16px;
+  opacity:0; animation:fadeUp 1s 0.3s forwards;
+}
+.hero-eyebrow::before {
+  content:''; display:block;
+  width:28px; height:0.5px; background:var(--gold-dim);
+}
+.hero-headline {
+  font-family:'Cinzel', serif;
+  font-size:clamp(40px,6.5vw,88px); font-weight:400;
+  color:var(--platinum); letter-spacing:0.02em;
+  line-height:1.1; margin-bottom:32px;
+  opacity:0; animation:fadeUp 1s 0.5s forwards;
+}
+.hero-headline em {
+  font-style:italic; font-family:'Jost', sans-serif;
+  font-weight:200; color:var(--gold); letter-spacing:0.01em;
+}
+.hero-sub {
+  font-size:15px; font-weight:200;
+  color:var(--silver);            /* ← lighter, readable */
+  letter-spacing:0.04em; line-height:1.9;
+  max-width:520px; margin-bottom:44px;
+  opacity:0; animation:fadeUp 1s 0.7s forwards;
+}
+.hero-actions {
+  display:flex; gap:16px;
+  opacity:0; animation:fadeUp 1s 0.9s forwards;
+}
+.btn-primary {
+  padding:15px 38px; background:var(--gold); color:var(--obsidian);
+  font-family:'Jost', sans-serif; font-size:8.5px;
+  letter-spacing:0.5em; text-transform:uppercase; font-weight:400;
+  text-decoration:none; border:none; cursor:pointer; transition:all 0.3s;
+}
+.btn-primary:hover { background:var(--gold-hi); box-shadow:0 8px 32px rgba(200,169,110,0.3); }
+.btn-ghost {
+  padding:15px 38px; background:transparent;
+  border:0.5px solid var(--ghost); color:var(--silver);  /* lighter */
+  font-family:'Jost', sans-serif; font-size:8.5px;
+  letter-spacing:0.5em; text-transform:uppercase; font-weight:300;
+  text-decoration:none; transition:all 0.3s;
+}
+.btn-ghost:hover { border-color:var(--gold-dim); color:var(--gold); }
+
+/* Stats bar */
+.hero-stats {
+  margin-top:72px;
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:0.5px solid var(--line);
+  opacity:0; animation:fadeUp 1s 1.1s forwards;
+}
+.stat-item {
+  padding:28px 0;
+  border-right:0.5px solid var(--line);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num {
+  font-family:'Cinzel', serif; font-size:26px; font-weight:400;
+  color:var(--platinum); letter-spacing:0.04em;  /* brighter */
+  line-height:1; margin-bottom:8px;
+}
+.stat-num span { color:var(--gold); }
+.stat-label {
+  font-size:8px; letter-spacing:0.45em;
+  color:var(--steel); text-transform:uppercase; font-weight:300;
+}
+
+/* ── SECTION BASE ── */
+section {
+  padding:108px 56px;
+  border-top:0.5px solid var(--line-soft);
+  position:relative;
+}
+
+/* Psychological: two-col intro keeps eye anchored left while scanning right */
+.section-intro {
+  display:grid; grid-template-columns:280px 1fr;
+  gap:80px; margin-bottom:72px; align-items:start;
+}
+.section-tag { position:sticky; top:100px; }
+.section-eyebrow {
+  font-size:8px; letter-spacing:0.55em;
+  color:var(--gold-dim); text-transform:uppercase; font-weight:300;
+  display:flex; align-items:center; gap:14px; margin-bottom:16px;
+}
+.section-eyebrow::before {
+  content:''; display:block; width:22px; height:0.5px; background:var(--gold-dim);
+}
+.section-title {
+  font-family:'Cinzel', serif;
+  font-size:clamp(26px,3vw,40px); font-weight:400;
+  color:var(--platinum); letter-spacing:0.04em; line-height:1.2;
+}
+.section-title em {
+  font-style:italic; font-family:'Jost', sans-serif;
+  font-weight:200; color:var(--gold);
+}
+
+/* Body text — clear and readable */
+.section-body {
+  font-size:14.5px; font-weight:200;
+  color:var(--silver);            /* ← PRIMARY FIX: was steel, now silver */
+  line-height:2; letter-spacing:0.02em;
+}
+.section-body p { margin-bottom:20px; }
+.section-body p:last-child { margin-bottom:0; }
+.section-body strong {
+  color:var(--platinum); font-weight:400;  /* ← standout words pop white */
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity:0; transform:translateY(24px);
+  transition:opacity 0.85s ease, transform 0.85s ease;
+}
+.reveal.visible { opacity:1; transform:none; }
+.reveal-delay { transition-delay:0.15s; }
+.reveal-delay-2 { transition-delay:0.3s; }
+
+/* ══════════════════════════════════
+   ABOUT
+══════════════════════════════════ */
+#about { background:var(--carbon); }
+
+.about-pillars {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--line);
+}
+.pillar {
+  background:var(--carbon); padding:48px 36px;
+  position:relative; transition:background 0.4s;
+}
+.pillar::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--gold); transform:scaleX(0); transform-origin:left;
+  transition:transform 0.5s ease;
+}
+.pillar:hover::before { transform:scaleX(1); }
+.pillar:hover { background:var(--gunmetal); }
+.pillar-num {
+  font-family:'Cinzel', serif; font-size:48px; font-weight:400;
+  color:rgba(200,169,110,0.14); line-height:1; margin-bottom:18px;
+}
+.pillar-word {
+  font-family:'Cinzel', serif; font-size:17px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.1em; text-transform:uppercase;
+  margin-bottom:14px;
+}
+.pillar-desc {
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em; /* ← lighter */
+}
+
+/* ══════════════════════════════════
+   MALAYSIA — NEW SECTION
+   Psychological: Pattern interrupt via dark accent,
+   map-like visual flow, authority through specifics
+══════════════════════════════════ */
+#malaysia {
+  background:var(--obsidian);
+  position:relative; overflow:hidden;
+}
+
+/* Subtle diagonal line — suggests movement/passage */
+#malaysia::before {
+  content:'';
+  position:absolute; top:0; left:0; bottom:0;
+  width:2px;
+  background:linear-gradient(180deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
+  opacity:0.25;
+}
+
+/* KL mark — authority signal */
+#malaysia::after {
+  content:'PORT KLANG';
+  position:absolute; bottom:40px; right:50px;
+  font-family:'DM Mono', monospace;
+  font-size:120px; font-weight:300;
+  color:transparent;
+  -webkit-text-stroke:0.5px rgba(200,169,110,0.04);
+  letter-spacing:0.08em; line-height:1;
+  pointer-events:none; user-select:none;
+  white-space:nowrap;
+}
+
+.mys-intro {
+  /* Psychological: red/amber alert framing creates urgency and importance */
+  border-left:3px solid var(--gold);
+  padding-left:36px; margin-bottom:64px;
+}
+.mys-intro-eyebrow {
+  font-size:8px; letter-spacing:0.6em; color:var(--gold);
+  text-transform:uppercase; font-weight:300; margin-bottom:16px;
+}
+.mys-intro-headline {
+  font-family:'Cinzel', serif; font-size:clamp(22px, 2.5vw, 32px);
+  font-weight:400; color:var(--platinum); letter-spacing:0.04em;
+  line-height:1.3; margin-bottom:18px;
+}
+.mys-intro-body {
+  font-size:14.5px; font-weight:200; color:var(--silver);
+  line-height:1.95; letter-spacing:0.02em; max-width:680px;
+}
+
+/* Corridor flow diagram — psychological: spatial layout = authority */
+.corridor-flow {
+  display:grid; grid-template-columns:1fr auto 1fr auto 1fr;
+  gap:0; margin:64px 0; align-items:center;
+  background:var(--line); padding:1px;
+}
+.corridor-node {
+  background:var(--carbon);
+  padding:36px 32px;
+  text-align:center;
+}
+.corridor-node.active {
+  background:var(--gunmetal);
+  border:0.5px solid rgba(200,169,110,0.2);
+}
+.node-flag {
+  font-size:28px; margin-bottom:10px; line-height:1;
+}
+.node-country {
+  font-family:'Cinzel', serif; font-size:13px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.2em; text-transform:uppercase;
+  margin-bottom:6px;
+}
+.node-role {
+  font-size:8px; letter-spacing:0.4em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300; line-height:1.6;
+}
+.node-role.highlight { color:var(--gold); }
+.corridor-arrow {
+  background:var(--carbon);
+  padding:36px 16px;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:4px;
+}
+.arrow-line {
+  width:1px; height:20px; background:linear-gradient(180deg, transparent, var(--gold-dim), transparent);
+}
+.arrow-label {
+  font-size:7px; letter-spacing:0.35em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300;
+  writing-mode:vertical-lr;
+}
+
+/* What KTG is doing — numbered specifics */
+/* Psychological: specificity = credibility. Vague = distrust. */
+.mys-ops {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--line); margin-top:64px;
+}
+.mys-op {
+  background:var(--carbon); padding:44px 40px;
+  position:relative; transition:background 0.4s;
+}
+.mys-op:hover { background:var(--gunmetal); }
+.op-num {
+  font-family:'Cinzel', serif; font-size:44px; font-weight:400;
+  color:rgba(200,169,110,0.12); line-height:1; margin-bottom:16px;
+}
+.op-tag {
+  font-size:7.5px; letter-spacing:0.55em; color:var(--gold);
+  text-transform:uppercase; font-weight:300; margin-bottom:10px;
+}
+.op-title {
+  font-family:'Cinzel', serif; font-size:18px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.06em; margin-bottom:14px; line-height:1.2;
+}
+.op-desc {
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em;
+}
+
+/* KTG objective box — single bold statement = psychological anchoring */
+.mys-objective {
+  margin-top:1px; background:var(--surface); padding:48px;
+  border:0.5px solid rgba(200,169,110,0.15);
+  display:grid; grid-template-columns:1fr auto;
+  gap:48px; align-items:center;
+}
+.mys-obj-text {
+  font-family:'Cinzel', serif; font-size:clamp(18px, 2vw, 26px);
+  font-weight:400; color:var(--platinum); letter-spacing:0.04em;
+  line-height:1.4;
+}
+.mys-obj-text em {
+  font-style:italic; font-family:'Jost', sans-serif;
+  font-weight:200; color:var(--gold);
+}
+.mys-obj-cta {
+  flex-shrink:0;
+  padding:16px 32px;
+  border:0.5px solid var(--gold-dim);
+  color:var(--gold); text-decoration:none;
+  font-size:8.5px; letter-spacing:0.45em;
+  text-transform:uppercase; font-weight:300;
+  font-family:'Jost', sans-serif;
+  transition:all 0.3s; white-space:nowrap;
+}
+.mys-obj-cta:hover { background:var(--gold); color:var(--obsidian); }
+
+/* ══════════════════════════════════
+   SERVICES
+══════════════════════════════════ */
+#services { background:var(--carbon); }
+
+.services-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:1px; background:var(--line);
+}
+.service-card {
+  background:var(--carbon); padding:52px 44px;
+  position:relative; overflow:hidden; transition:background 0.4s;
+}
+.service-card:hover { background:var(--gunmetal); }
+.service-num {
+  font-family:'DM Mono', monospace; font-size:11px;
+  color:var(--gold-dim); letter-spacing:0.25em; margin-bottom:24px;
+}
+.service-title {
+  font-family:'Cinzel', serif; font-size:19px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.06em;
+  line-height:1.2; margin-bottom:18px;
+}
+.service-desc {
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em;
+  margin-bottom:24px;
+}
+.service-tag {
+  display:inline-block; font-size:7.5px; letter-spacing:0.45em;
+  text-transform:uppercase; font-weight:300; color:var(--gold);
+  padding:7px 16px; border:0.5px solid rgba(200,169,110,0.3);
+  background:rgba(200,169,110,0.06);
+}
+
+/* ══════════════════════════════════
+   ECTA
+══════════════════════════════════ */
+#ecta { background:var(--obsidian); }
+
+.ecta-comparison {
+  display:grid; grid-template-columns:1fr 40px 1fr;
+  background:var(--line); margin-top:72px;
+}
+.ecta-col { background:var(--carbon); padding:44px 40px; }
+.ecta-col.highlight { background:var(--gunmetal); }
+.ecta-col-label {
+  font-size:8px; letter-spacing:0.5em; color:var(--steel);
+  text-transform:uppercase; font-weight:300; margin-bottom:28px;
+}
+.ecta-col.highlight .ecta-col-label { color:var(--gold-dim); }
+.ecta-item {
+  display:flex; align-items:baseline; gap:12px;
+  padding:12px 0; border-bottom:0.5px solid var(--line-soft);
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); letter-spacing:0.02em;
+}
+.ecta-item:last-child { border-bottom:none; }
+.ecta-x { color:#554; font-size:10px; }
+.ecta-check { color:var(--gold); font-size:10px; }
+.ecta-vs {
+  background:var(--obsidian); display:flex;
+  align-items:center; justify-content:center;
+}
+.ecta-vs span {
+  font-family:'Cinzel', serif; font-size:10px; font-weight:400;
+  color:var(--ghost); letter-spacing:0.2em;
+  writing-mode:vertical-lr; text-transform:uppercase;
+}
+.ecta-metrics {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--line); margin-top:1px;
+}
+.ecta-metric { background:var(--carbon); padding:40px 36px; text-align:center; }
+.ecta-metric-num {
+  font-family:'Cinzel', serif; font-size:40px; font-weight:400;
+  color:var(--gold); letter-spacing:0.04em; line-height:1; margin-bottom:12px;
+}
+.ecta-metric-label {
+  font-size:8.5px; letter-spacing:0.4em;
+  color:var(--silver); text-transform:uppercase; font-weight:300;
+}
+
+/* ══════════════════════════════════
+   PROCESS
+══════════════════════════════════ */
+#process { background:var(--carbon); }
+
+.process-list { margin-top:72px; }
+.process-step {
+  display:grid; grid-template-columns:72px 1fr;
+  gap:48px; align-items:start;
+  padding:40px 0; border-bottom:0.5px solid var(--line-soft);
+  position:relative;
+}
+.process-step:last-child { border-bottom:none; }
+.process-step::before {
+  content:''; position:absolute;
+  left:35px; top:72px; bottom:-40px; width:0.5px;
+  background:linear-gradient(180deg, var(--gold-dim), transparent);
+  opacity:0.25;
+}
+.process-step:last-child::before { display:none; }
+.step-num {
+  font-family:'Cinzel', serif; font-size:38px; font-weight:400;
+  color:rgba(200,169,110,0.18); line-height:1;
+  text-align:center; padding-top:4px;
+}
+.step-tag {
+  font-size:7.5px; letter-spacing:0.55em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300; margin-bottom:8px;
+}
+.step-title {
+  font-family:'Cinzel', serif; font-size:19px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.06em; margin-bottom:12px; line-height:1.2;
+}
+.step-desc {
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em;
+}
+
+/* ══════════════════════════════════
+   MARKET
+══════════════════════════════════ */
+#market { background:var(--obsidian); }
+
+.market-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--line); margin-top:72px;
+}
+.market-card {
+  background:var(--obsidian); padding:40px 36px; position:relative;
+}
+.market-card::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:2px;
+  background:var(--gold); opacity:0.25; transition:opacity 0.4s;
+}
+.market-card:hover::before { opacity:1; }
+.market-val {
+  font-family:'Cinzel', serif; font-size:34px; font-weight:400;
+  color:var(--gold); letter-spacing:0.04em; line-height:1; margin-bottom:10px;
+}
+.market-label {
+  font-size:9.5px; letter-spacing:0.38em;
+  color:var(--platinum); text-transform:uppercase;
+  font-weight:300; margin-bottom:14px;
+}
+.market-desc {
+  font-size:13px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em;
+}
+
+/* ══════════════════════════════════
+   LEGAL
+══════════════════════════════════ */
+#legal { background:var(--carbon); }
+
+.legal-grid {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:var(--line); margin-top:72px;
+}
+.legal-card { background:var(--carbon); padding:48px 36px; }
+.legal-num {
+  font-family:'Cinzel', serif; font-size:48px; font-weight:400;
+  color:rgba(200,169,110,0.12); line-height:1; margin-bottom:18px;
+}
+.legal-title {
+  font-family:'Cinzel', serif; font-size:15px; font-weight:500;
+  color:var(--platinum); letter-spacing:0.08em; margin-bottom:14px; line-height:1.3;
+}
+.legal-desc {
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.9; letter-spacing:0.02em;
+}
+
+/* ══════════════════════════════════
+   FAQ
+══════════════════════════════════ */
+#faq { background:var(--obsidian); }
+
+.faq-list { margin-top:72px; max-width:820px; }
+.faq-item { border-bottom:0.5px solid var(--line-soft); }
+.faq-q {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:22px 0; cursor:pointer;
+  font-family:'Cinzel', serif; font-size:14px; font-weight:400;
+  color:var(--silver); letter-spacing:0.04em; line-height:1.4;  /* lighter */
+  transition:color 0.3s;
+}
+.faq-q:hover { color:var(--gold); }
+.faq-icon {
+  font-size:20px; color:var(--gold-dim); flex-shrink:0; margin-left:24px;
+  transition:transform 0.4s, color 0.3s;
+}
+.faq-item.open .faq-icon { transform:rotate(45deg); color:var(--gold); }
+.faq-item.open .faq-q { color:var(--platinum); }
+.faq-a { max-height:0; overflow:hidden; transition:max-height 0.5s ease; }
+.faq-item.open .faq-a { max-height:400px; }
+.faq-a-inner {
+  padding:4px 0 24px;
+  font-size:13.5px; font-weight:200;
+  color:var(--silver); line-height:1.95; letter-spacing:0.02em;
+}
+
+/* ══════════════════════════════════
+   CONTACT
+══════════════════════════════════ */
+#contact { background:var(--carbon); position:relative; overflow:hidden; }
+#contact::after {
+  content:'KTG'; position:absolute; bottom:-80px; right:-60px;
+  font-family:'Cinzel', serif; font-size:min(35vw,480px); font-weight:700;
+  color:transparent; -webkit-text-stroke:0.5px rgba(200,169,110,0.04);
+  letter-spacing:-0.04em; line-height:0.85;
+  pointer-events:none; user-select:none;
+}
+.contact-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:start; position:relative; z-index:1;
+}
+.contact-details { margin-top:44px; display:flex; flex-direction:column; gap:22px; }
+.cd-label {
+  font-size:7.5px; letter-spacing:0.55em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300; margin-bottom:4px;
+}
+.cd-val {
+  font-size:14px; font-weight:300; color:var(--silver); letter-spacing:0.04em;
+}
+.cd-val a { color:inherit; text-decoration:none; transition:color 0.3s; }
+.cd-val a:hover { color:var(--gold); }
+.abn-block {
+  margin-top:44px; padding:22px 28px;
+  border:0.5px solid var(--line); background:rgba(200,169,110,0.03);
+}
+.abn-label {
+  font-size:7.5px; letter-spacing:0.45em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300; margin-bottom:8px;
+}
+.abn-val {
+  font-family:'DM Mono', monospace; font-size:12px; font-weight:300;
+  color:var(--silver); letter-spacing:0.18em;
+}
+
+.contact-form { display:flex; flex-direction:column; gap:14px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.form-group { display:flex; flex-direction:column; gap:6px; }
+.form-group.full { grid-column:1/-1; }
+.form-label {
+  font-size:7.5px; letter-spacing:0.45em; color:var(--gold-dim);
+  text-transform:uppercase; font-weight:300;
+}
+.form-input, .form-select, .form-textarea {
+  background:var(--gunmetal); border:0.5px solid var(--ghost);
+  color:var(--silver); font-family:'Jost', sans-serif;
+  font-size:13px; font-weight:300; padding:13px 16px;
+  outline:none; width:100%; transition:border-color 0.3s;
+  letter-spacing:0.04em; -webkit-appearance:none;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color:var(--gold-dim);
+}
+.form-input::placeholder { color:var(--ghost); }
+.form-textarea { height:96px; resize:vertical; }
+.form-select option { background:var(--gunmetal); }
+.form-submit {
+  padding:16px; background:var(--gold); color:var(--obsidian);
+  font-family:'Jost', sans-serif; font-size:8.5px;
+  letter-spacing:0.55em; text-transform:uppercase; font-weight:400;
+  border:none; cursor:pointer; transition:all 0.3s; margin-top:6px;
+}
+.form-submit:hover { background:var(--gold-hi); box-shadow:0 8px 32px rgba(200,169,110,0.3); }
+.form-note {
+  font-size:10px; font-weight:200; color:var(--steel);
+  letter-spacing:0.08em; text-align:center; margin-top:2px;
+}
+
+/* ── FOOTER ── */
+footer {
+  background:var(--obsidian); border-top:0.5px solid var(--line);
+  padding:44px 56px;
+  display:flex; justify-content:space-between; align-items:center;
+  flex-wrap:wrap; gap:24px;
+}
+.footer-brand { display:flex; align-items:center; gap:14px; }
+.footer-logo { width:26px; height:auto; filter:brightness(6); opacity:0.5; }
+.footer-wordmark {
+  font-family:'Cinzel', serif; font-size:10px; font-weight:600;
+  letter-spacing:0.28em; color:var(--ghost); text-transform:uppercase;
+}
+.footer-slogan {
+  font-size:8.5px; letter-spacing:0.5em; color:var(--gold-dim);
+  font-weight:300; text-transform:uppercase; margin-top:4px;
+}
+.footer-legal {
+  font-size:10px; font-weight:200; color:var(--ghost); letter-spacing:0.1em;
+  text-align:right;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(20px); }
+  to   { opacity:1; transform:none; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width:960px) {
+  nav { padding:18px 24px; }
+  .nav-links, .nav-cta { display:none; }
+  .nav-toggle { display:block; }
+  .hero, section { padding-left:24px; padding-right:24px; }
+  .hero { padding-bottom:56px; }
+  .hero-stats { grid-template-columns:1fr 1fr; }
+  .section-intro { grid-template-columns:1fr; gap:28px; }
+  .section-tag { position:static; }
+  .about-pillars, .services-grid, .market-grid, .legal-grid { grid-template-columns:1fr; }
+  .corridor-flow { grid-template-columns:1fr; }
+  .corridor-arrow { writing-mode:horizontal-tb; flex-direction:row; padding:16px; }
+  .arrow-label { writing-mode:horizontal-tb; }
+  .mys-ops { grid-template-columns:1fr; }
+  .mys-objective { grid-template-columns:1fr; }
+  .ecta-comparison { grid-template-columns:1fr; }
+  .ecta-vs { display:none; }
+  .ecta-metrics { grid-template-columns:1fr; }
+  .process-step { grid-template-columns:48px 1fr; gap:24px; }
+  .contact-grid { grid-template-columns:1fr; }
+  .form-row { grid-template-columns:1fr; }
+  footer { flex-direction:column; padding:32px 24px; text-align:center; }
+  .footer-legal { text-align:center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a class="nav-brand" href="#">
+    <img class="nav-logo" src="data:image/png;base64,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" alt="KTG">
+    <span class="nav-wordmark">Kimberley Trade Group</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#malaysia">Malaysia</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#ecta">ECTA</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#market">Market</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Enquire</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">☰</button>
+</nav>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ktg-bg">KTG</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">AUS · IND · MYS &nbsp;—&nbsp; Commodity Brokerage</div>
+    <h1 class="hero-headline">
+      Where Australia<br>
+      Meets <em>India.</em><br>
+      By Design.
+    </h1>
+    <p class="hero-sub">
+      Kimberley Trade Group engineers the connections that move commodities across the Indo-Pacific corridor. We do not find opportunities — we architect them.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Our Services</a>
+      <a href="#contact" class="btn-ghost">Begin a Conversation</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">0<span>%</span></div>
+        <div class="stat-label">Duty via AI-ECTA</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">5<span>%</span></div>
+        <div class="stat-label">Success Fee Only</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$27<span>B+</span></div>
+        <div class="stat-label">Annual AUS–IND Trade</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Corridor Nations</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section id="about">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Who We Are</div>
+      <h2 class="section-title">An Elite<br>Commodity<br><em>Brokerage.</em></h2>
+    </div>
+    <div class="section-body">
+      <p>Kimberley Trade Group is an Australian-registered international commodity brokerage operating with singular focus on the <strong>AUS–IND–MYS trade corridor</strong>. We specialise in high-value arbitrage between Australian resource supply, Malaysian transshipment infrastructure, and Indian industrial demand.</p>
+      <p>We act as precision architects of trade — identifying verified counterparties, managing introduction risk, and ensuring every connection we engineer is legally protected and commercially sound. We take no title to goods and commit no capital. <strong>We earn only when you do.</strong></p>
+      <p>Our model is built on one principle: information asymmetry is the product. The connections, timing, and corridor intelligence KTG provides are unavailable on open exchanges. That is the edge.</p>
+    </div>
+  </div>
+  <div class="about-pillars reveal reveal-delay">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-word">Precision</div>
+      <div class="pillar-desc">Every engagement is scoped, documented, and executed with institutional rigour. We do not operate on volume — we operate on verified, precision-grade corridor access where every counterparty is vetted before introduction.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-word">Position</div>
+      <div class="pillar-desc">KTG holds a structural position at the intersection of three complementary economies. Our relationships at port level, mill level, and ministry level are the product of years of operational presence — not a database.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-word">Passage</div>
+      <div class="pillar-desc">We do not find suppliers. We activate corridors. Our boutique execution speed — moving at the speed of the market rather than the speed of internal bureaucracy — is the technical advantage large trading houses cannot replicate.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MALAYSIA — THE CORRIDOR PIVOT ════ -->
+<section id="malaysia">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">The Malaysian Corridor</div>
+      <h2 class="section-title">Port Klang.<br>The <em>Strategic</em><br>Pivot Point.</h2>
+    </div>
+    <div class="section-body">
+      <p>Malaysia is not a destination in KTG's corridor — it is the <strong>hinge</strong>. Port Klang, Southeast Asia's fourth-largest container port, sits precisely between Australian resource supply and Indian industrial demand, offering world-class transshipment capability, favourable Free Trade Agreement frameworks, and customs velocity that no alternative route can match.</p>
+      <p>KTG is actively building its Malaysian infrastructure — vetting logistics operators, establishing port relationships, and qualifying corridor partners who meet our institutional standards for reliability, throughput capacity, and compliance velocity.</p>
+    </div>
+  </div>
+
+  <!-- Corridor Flow — spatial layout signals authority and clarity -->
+  <div class="corridor-flow reveal reveal-delay">
+    <div class="corridor-node">
+      <div class="node-flag">🇦🇺</div>
+      <div class="node-country">Australia</div>
+      <div class="node-role">Resource Origin<br>Western Australia</div>
+    </div>
+    <div class="corridor-arrow">
+      <div class="arrow-line"></div>
+      <div class="arrow-label">Supply</div>
+      <div class="arrow-line"></div>
+    </div>
+    <div class="corridor-node active">
+      <div class="node-flag">🇲🇾</div>
+      <div class="node-country">Malaysia</div>
+      <div class="node-role highlight">Transshipment Hub<br>Port Klang · KTG Active</div>
+    </div>
+    <div class="corridor-arrow">
+      <div class="arrow-line"></div>
+      <div class="arrow-label">Passage</div>
+      <div class="arrow-line"></div>
+    </div>
+    <div class="corridor-node">
+      <div class="node-flag">🇮🇳</div>
+      <div class="node-country">India</div>
+      <div class="node-role">Industrial Demand<br>Mumbai · Delhi · Jaipur</div>
+    </div>
+  </div>
+
+  <!-- Operational specifics — specificity = credibility -->
+  <div class="mys-ops reveal">
+    <div class="mys-op">
+      <div class="op-num">01</div>
+      <div class="op-tag">Logistics Vetting</div>
+      <div class="op-title">Operator Assessment at Port Klang</div>
+      <div class="op-desc">KTG is conducting a structured due diligence process on Malaysian freight forwarders and port operators — evaluating throughput capacity, customs clearance velocity, digital infrastructure, and berth access for Handymax and Panamax-class vessels. Only operators who meet KTG's corridor standards are introduced to principals.</div>
+    </div>
+    <div class="mys-op">
+      <div class="op-num">02</div>
+      <div class="op-tag">Counterparty Qualification</div>
+      <div class="op-title">Mill & Forwarder Introductions</div>
+      <div class="op-desc">KTG is establishing direct relationships with Malaysian steel mills, agricultural processors, and specialist freight forwarders operating across the Straits of Malacca route. Every counterparty is assessed against KTG's vetting criteria before any principal introduction is made.</div>
+    </div>
+    <div class="mys-op">
+      <div class="op-num">03</div>
+      <div class="op-tag">Q3 2026 Allocation</div>
+      <div class="op-title">Corridor Activation — Q3 2026</div>
+      <div class="op-desc">KTG's Malaysian operations are targeted at securing corridor infrastructure ahead of Q3 2026 commodity allocation flows. The goal is a formalised corridor partnership with a qualified Malaysian logistics operator, with confirmed slot allocation and documented throughput commitments in place before June 2026.</div>
+    </div>
+    <div class="mys-op">
+      <div class="op-num">04</div>
+      <div class="op-tag">Legal Protection</div>
+      <div class="op-title">NCNDA-Protected Introductions</div>
+      <div class="op-desc">All Malaysian counterparty introductions made by KTG are protected under our standard Non-Circumvention, Non-Disclosure Agreement — governed by Western Australian law with ACICA arbitration. Every connection KTG engineers in Malaysia is legally protected before any commercial discussion begins.</div>
+    </div>
+  </div>
+
+  <!-- Bold objective statement — psychological anchoring -->
+  <div class="mys-objective reveal reveal-delay">
+    <div class="mys-obj-text">
+      Malaysia is where the corridor becomes <em>real.</em><br>
+      KTG is building the passage infrastructure now — so our principals move first.
+    </div>
+    <a href="#contact" class="mys-obj-cta">Discuss Malaysian Access →</a>
+  </div>
+</section>
+
+<!-- ════ SERVICES ════ -->
+<section id="services">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">What We Source</div>
+      <h2 class="section-title">Four<br>Categories.<br><em>One Corridor.</em></h2>
+    </div>
+    <div class="section-body">
+      <p>Every category is underpinned by the AI-ECTA duty advantage — giving Indian buyers a direct cost benefit unavailable through Dubai or Singapore intermediaries. All sourcing is origin-certified, counterparty-vetted, and legally protected before introduction.</p>
+    </div>
+  </div>
+  <div class="services-grid reveal reveal-delay">
+    <div class="service-card">
+      <div class="service-num">01 ——</div>
+      <div class="service-title">Industrial Machinery<br>& Equipment</div>
+      <div class="service-desc">CNC machines, fabrication equipment, packaging lines, generators, and processing machinery sourced from Western Australian and broader Australian industry. Quality-certified, duty-advantaged, and immediately available to qualified Indian buyers.</div>
+      <span class="service-tag">High Value · Immediate Demand</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02 ——</div>
+      <div class="service-title">Agricultural<br>Commodities</div>
+      <div class="service-desc">Australian wool, merino fibre, macadamia, specialty grains, and premium food products — quality-assured, origin-certified, duty-advantaged via AI-ECTA. Direct from verified Australian producer to qualified Indian importer, routed through Port Klang.</div>
+      <span class="service-tag">ECTA Duty Advantage</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03 ——</div>
+      <div class="service-title">Gemstones &<br>Rare Earth Assets</div>
+      <div class="service-desc">Western Australian rough stones, chrysoprase, zircon, and rare geological assets — Kimberley Process compliant and GIA-verifiable. Post-Argyle scarcity creates a structural pricing floor that only strengthens with time.</div>
+      <span class="service-tag">Post-Argyle Scarcity Premium</span>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04 ——</div>
+      <div class="service-title">Consumer Health<br>Products</div>
+      <div class="service-desc">Australian vitamins, supplements, and wellness brands matched to qualified Indian distributors in India's fastest-growing consumer segment. Regulatory-compliant and brand-verified before any introduction is made.</div>
+      <span class="service-tag">18% Market Growth Rate</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ ECTA ════ -->
+<section id="ecta">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Why ECTA Matters</div>
+      <h2 class="section-title">A Trade<br>Agreement That<br><em>Changes Numbers.</em></h2>
+    </div>
+    <div class="section-body">
+      <p>The AI-ECTA, in force since 2022, eliminates or dramatically reduces import duties on Australian goods entering India. For Indian buyers, sourcing through KTG's corridor is already cheaper than sourcing via Dubai or Singapore — <strong>before any price negotiation.</strong> This advantage is structural, not cyclical.</p>
+    </div>
+  </div>
+  <div class="ecta-comparison reveal reveal-delay">
+    <div class="ecta-col">
+      <div class="ecta-col-label">Without ECTA — via Dubai / Singapore</div>
+      <div class="ecta-item"><span class="ecta-x">✕</span> 5–15% import duty on most goods</div>
+      <div class="ecta-item"><span class="ecta-x">✕</span> Multiple intermediary margins</div>
+      <div class="ecta-item"><span class="ecta-x">✕</span> 3–5 parties in the supply chain</div>
+      <div class="ecta-item"><span class="ecta-x">✕</span> Slower documentation & clearance</div>
+      <div class="ecta-item"><span class="ecta-x">✕</span> Opaque pricing, hidden margins</div>
+    </div>
+    <div class="ecta-vs"><span>VS</span></div>
+    <div class="ecta-col highlight">
+      <div class="ecta-col-label">With ECTA via KTG — Direct AUS → MYS → IND</div>
+      <div class="ecta-item"><span class="ecta-check">✓</span> 0% duty on qualifying goods</div>
+      <div class="ecta-item"><span class="ecta-check">✓</span> Direct supplier access</div>
+      <div class="ecta-item"><span class="ecta-check">✓</span> One trusted facilitator only</div>
+      <div class="ecta-item"><span class="ecta-check">✓</span> LC-secured bank payment</div>
+      <div class="ecta-item"><span class="ecta-check">✓</span> Full documentation trail</div>
+    </div>
+  </div>
+  <div class="ecta-metrics reveal">
+    <div class="ecta-metric">
+      <div class="ecta-metric-num">96%</div>
+      <div class="ecta-metric-label">Tariff Lines Covered by AI-ECTA</div>
+    </div>
+    <div class="ecta-metric">
+      <div class="ecta-metric-num">5%</div>
+      <div class="ecta-metric-label">Net Cost Advantage vs Intermediary Routes</div>
+    </div>
+    <div class="ecta-metric">
+      <div class="ecta-metric-num">2022</div>
+      <div class="ecta-metric-label">Agreement In Force — First-Mover Window Open</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESS ════ -->
+<section id="process">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">How We Work</div>
+      <h2 class="section-title">Five Steps.<br><em>Total Clarity.</em><br>Every Time.</h2>
+    </div>
+    <div class="section-body">
+      <p>Every transaction follows the same structured protocol. You know exactly what happens at every stage, and exactly when your interests are protected. There is no ambiguity in the KTG process — by design.</p>
+    </div>
+  </div>
+  <div class="process-list reveal reveal-delay">
+    <div class="process-step">
+      <div class="step-num">01</div>
+      <div>
+        <div class="step-tag">Mandate</div>
+        <div class="step-title">The Briefing</div>
+        <div class="step-desc">You share your requirements — product, specification, volume, target price. We listen, clarify, and confirm we can source to your criteria before proceeding. Nothing moves without a verified mandate in place.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">02</div>
+      <div>
+        <div class="step-tag">Sourcing</div>
+        <div class="step-title">Activation & Verification</div>
+        <div class="step-desc">We activate our corridor network, identify suitable counterparties, and conduct due diligence on legitimacy, suitability, and availability. No introduction is made until verification is complete — this is the KTG standard.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">03</div>
+      <div>
+        <div class="step-tag">Protection</div>
+        <div class="step-title">Protected Introduction</div>
+        <div class="step-desc">Full counterparty details are provided under our NCNDA protection agreement. Both parties execute plain commercial agreements governed by Western Australian law before any pricing or negotiation begins.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">04</div>
+      <div>
+        <div class="step-tag">Settlement</div>
+        <div class="step-title">LC Payment Structure</div>
+        <div class="step-desc">Payment is arranged via Letter of Credit through regulated banking institutions — not informal platforms. Funds are secured before goods move. You deal directly with the supplier from this point forward.</div>
+      </div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">05</div>
+      <div>
+        <div class="step-tag">Completion</div>
+        <div class="step-title">Corridor Closed</div>
+        <div class="step-desc">Transaction completes with a full documentation trail. KTG's 5% success commission is earned at this point — not before. The introduced relationship is yours, protected by our non-circumvention agreement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ MARKET ════ -->
+<section id="market">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Market Intelligence</div>
+      <h2 class="section-title">The Numbers<br>Behind the<br><em>Opportunity.</em></h2>
+    </div>
+    <div class="section-body">
+      <p>The Australia–India trade corridor is not a trend. It is a structural shift driven by complementary industrial profiles, the AI-ECTA framework, and India's accelerating import demand. The following figures represent the scale of what KTG operates within.</p>
+    </div>
+  </div>
+  <div class="market-grid reveal reveal-delay">
+    <div class="market-card">
+      <div class="market-val">$27B+</div>
+      <div class="market-label">Annual AUS–IND Trade Value</div>
+      <div class="market-desc">Growing approximately 15% year-on-year, accelerated by AI-ECTA and India's surging industrial import demand across all categories KTG facilitates.</div>
+    </div>
+    <div class="market-card">
+      <div class="market-val">1.4B</div>
+      <div class="market-label">India Consumer Market</div>
+      <div class="market-desc">The world's most populous nation with a rapidly expanding industrial and middle-class consumer base. Import demand is growing across every category KTG facilitates.</div>
+    </div>
+    <div class="market-card">
+      <div class="market-val">$8B+</div>
+      <div class="market-label">India Annual Machinery Imports</div>
+      <div class="market-desc">Australian machinery represents a quality-certified, ECTA-advantaged alternative to Chinese supply — at a structural cost advantage that only widens over time.</div>
+    </div>
+    <div class="market-card">
+      <div class="market-val">28%</div>
+      <div class="market-label">Post-Argyle Diamond Appreciation</div>
+      <div class="market-desc">Since the Argyle Mine closure in 2020, WA-sourced pink diamonds have appreciated approximately 28% annually — among the world's most sought-after rare assets.</div>
+    </div>
+    <div class="market-card">
+      <div class="market-val">$3.2B</div>
+      <div class="market-label">AUS–IND Agricultural Trade</div>
+      <div class="market-desc">Growing as Indian manufacturers seek quality, certified food inputs from a trusted Commonwealth partner with clear origin traceability and ECTA duty advantages.</div>
+    </div>
+    <div class="market-card">
+      <div class="market-val">18%</div>
+      <div class="market-label">India Wellness Market Growth</div>
+      <div class="market-desc">India's health supplement market growing at 18% annually with strong preference for Australian-origin products among urban Indian consumers and distributors.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ LEGAL ════ -->
+<section id="legal">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Legal Framework</div>
+      <h2 class="section-title">Built to<br><em>Protect</em><br>Everyone.</h2>
+    </div>
+    <div class="section-body">
+      <p>Every KTG engagement is governed by a clear, structured legal framework. Our role, liability, and obligations are explicitly defined before any introduction is made. There is no ambiguity — by design.</p>
+    </div>
+  </div>
+  <div class="legal-grid reveal reveal-delay">
+    <div class="legal-card">
+      <div class="legal-num">01</div>
+      <div class="legal-title">Commercial Agency Agreement</div>
+      <div class="legal-desc">Clearly defines our role as introducer only. We take no title, make no representations, and bear zero liability for goods quality or transaction outcome. Our liability is capped to commission received on that transaction.</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-num">02</div>
+      <div class="legal-title">Non-Circumvention Agreement</div>
+      <div class="legal-desc">All introduced relationships are contractually protected for 2 years. Neither party can bypass KTG's facilitation once an introduction is made — with a clear, proportionate remedy clause for any breach.</div>
+    </div>
+    <div class="legal-card">
+      <div class="legal-num">03</div>
+      <div class="legal-title">Letter of Credit Settlement</div>
+      <div class="legal-desc">All payments are structured via regulated bank-backed Letters of Credit — not informal platforms. Funds are secured at a regulated institution before any goods or documentation move.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FAQ ════ -->
+<section id="faq">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Common Questions</div>
+      <h2 class="section-title">Everything<br>You Need<br><em>to Know.</em></h2>
+    </div>
+    <div class="section-body">
+      <p>We operate with full transparency. If your question is not answered here, reach out directly and we will respond within 24 hours.</p>
+    </div>
+  </div>
+  <div class="faq-list reveal">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What does Kimberley Trade Group actually do?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">We are an independent trade facilitator. We identify Australian suppliers, introduce them to qualified Indian buyers via the Malaysian corridor, and manage the documentation and communication flow throughout. We take no title to goods and earn a 5% commission only upon successful transaction completion. We are the architect, not the contractor.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Do I need to pay anything upfront?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">No. Our fee is strictly success-based — 5% of gross transaction value, payable only when a transaction completes. There is no retainer, no consulting fee, and no upfront cost for either the buyer or the seller. We earn only when you do.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How does AI-ECTA benefit me as an Indian buyer?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">The AI-ECTA agreement eliminates or significantly reduces import duties on a wide range of Australian goods entering India. Sourcing through KTG's corridor is already cheaper than sourcing via Dubai or Singapore — before any price negotiation. The advantage is structural and only widens as ECTA tariff reductions are progressively phased in.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">How is payment handled? Is it safe?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">All transactions are settled via Letter of Credit (LC) through regulated banking institutions in both Australia and India. This is the global standard for secure international trade — funds are verified and secured at the bank level before goods move. We do not use informal escrow platforms or peer-to-peer payment systems.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">What is KTG doing in Malaysia?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">KTG is actively building its Malaysian corridor infrastructure — conducting due diligence on Port Klang logistics operators, establishing relationships with freight forwarders and mill operators, and qualifying corridor partners ahead of Q3 2026 commodity allocation flows. Malaysia functions as the strategic transshipment pivot point of our AUS–IND corridor. All Malaysian introductions are NCNDA-protected.</div></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Can I approach a supplier you've introduced directly in future?<span class="faq-icon">+</span></div>
+      <div class="faq-a"><div class="faq-a-inner">All parties sign our Non-Circumvention Agreement prior to introduction. This protects both the relationship and our facilitation role for 2 years. After that period, both parties are free to transact independently. The agreement is clear, proportionate, and governed by WA commercial law.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section id="contact">
+  <div class="section-intro reveal">
+    <div class="section-tag">
+      <div class="section-eyebrow">Begin an Engagement</div>
+      <h2 class="section-title">Ready to<br><em>Trade</em><br>Smarter?</h2>
+    </div>
+    <div class="section-body">
+      <p>Whether you are an Australian supplier seeking Indian buyers, or an Indian importer seeking direct Australian supply through the Malaysian corridor — we would like to hear from you. No obligation. No upfront cost.</p>
+    </div>
+  </div>
+  <div class="contact-grid reveal reveal-delay">
+    <div>
+      <div class="contact-details">
+        <div>
+          <div class="cd-label">Managing Director</div>
+          <div class="cd-val">Aayan Sharma</div>
+        </div>
+        <div>
+          <div class="cd-label">Email</div>
+          <div class="cd-val"><a href="mailto:ktg.md@outlook.com">ktg.md@outlook.com</a></div>
+        </div>
+        <div>
+          <div class="cd-label">Mobile</div>
+          <div class="cd-val"><a href="tel:+919541624879">+91 9541 624 879</a></div>
+        </div>
+        <div>
+          <div class="cd-label">Website</div>
+          <div class="cd-val"><a href="https://kimberleytradegroup.github.io/KimberleyTradeGroup/" target="_blank">kimberleytradegroup.github.io</a></div>
+        </div>
+        <div>
+          <div class="cd-label">Operating Corridor</div>
+          <div class="cd-val">AUS · IND · MYS</div>
+        </div>
+        <div>
+          <div class="cd-label">Governing Law</div>
+          <div class="cd-val">WA Commercial Law · ACICA Arbitration</div>
+        </div>
+      </div>
+      <div class="abn-block">
+        <div class="abn-label">ABN — Registered Australia</div>
+        <div class="abn-val">47 851 268 370</div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name *</label>
+          <input class="form-input" type="text" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name *</label>
+          <input class="form-input" type="text" required>
+        </div>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Email Address *</label>
+        <input class="form-input" type="email" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Phone / WhatsApp</label>
+          <input class="form-input" type="tel">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company</label>
+          <input class="form-input" type="text">
+        </div>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">I Am A *</label>
+        <select class="form-select" required>
+          <option value="" disabled selected></option>
+          <option>Indian Buyer / Importer</option>
+          <option>Australian Supplier / Seller</option>
+          <option>Malaysian Logistics Partner</option>
+          <option>Investor / Partner</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Category of Interest</label>
+        <select class="form-select">
+          <option value="" disabled selected></option>
+          <option>Industrial Machinery & Equipment</option>
+          <option>Agricultural Commodities</option>
+          <option>Gemstones & Rare Earth Assets</option>
+          <option>Consumer Health Products</option>
+          <option>Malaysian Corridor / Logistics</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Requirements</label>
+        <textarea class="form-textarea" placeholder="Brief description of your requirements or enquiry..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Enquiry →</button>
+      <div class="form-note">We respond within 24 hours · All information kept strictly confidential</div>
+    </form>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-brand">
+    <img class="footer-logo" src="data:image/png;base64,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" alt="KTG">
+    <div>
+      <div class="footer-wordmark">Kimberley Trade Group</div>
+      <div class="footer-slogan">Precision · Position · Passage</div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    © 2025 Kimberley Trade Group · ABN 47 851 268 370 · All Rights Reserved<br>
+    <span style="font-size:9px;">Governed by Western Australian Commercial Law</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// FAQ
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const open = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if(!open) item.classList.add('open');
+}
+
+// Form
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = 'Enquiry Received ✓';
+  btn.style.background = 'var(--surface)';
+  btn.style.color = 'var(--gold)';
+  btn.disabled = true;
+}
+</script>
+</body>
+</html>
